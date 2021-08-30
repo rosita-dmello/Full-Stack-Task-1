@@ -1,14 +1,15 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Question from "./Question";
 import Answer from "./Answer";
 import Toggle from "./Toggle";
 import Score from "./Score";
+import data from "./questions";
 
 
 function Card() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
-    
+
 
 	function prevQuestion() {
 		if (currentQuestion !== 0){
@@ -28,19 +29,29 @@ function Card() {
 		 setCurrentScore(score);
 	}
 	
-    return <div>
+    return <div class="app">
         {showScore
-            ? <Score score={currentScore} /> : ( <> 
+            ? <Score score={currentScore} /> : ( <div> 
 
-			<Question  currentQuestion={currentQuestion} />
+			<Question data={data} currentQuestion={currentQuestion} />
 
-			 <Answer nextQuestion={nextQuestion} currentQuestion={currentQuestion} sendScore={receiveScore} /> 
+			 <Answer data={data} nextQuestion={nextQuestion} currentQuestion={currentQuestion} sendScore={receiveScore} /> 
 
 			 <Toggle prevQuestion={prevQuestion} nextQuestion={nextQuestion} /> 
 
-			 </> )}
+			 </div> )}
     </div>
 
 }
 
 export default Card;
+
+
+
+
+
+
+
+
+
+

@@ -1,9 +1,9 @@
 import React from "react";
-import data from "./questions";
+import questions from "./questions";
 
 function Score(props){
     
-	return <div className='score-section'>You scored {props.score} out of {data.length}</div>
+	return <div className='score-section'>You scored {props.score} out of {questions.length}</div>
 			
 }
 

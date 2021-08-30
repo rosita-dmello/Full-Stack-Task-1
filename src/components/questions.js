@@ -16,7 +16,7 @@ const data = [
         "category": "Entertainment: Board Games",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "On a standard Monopoly board, which square is diagonally opposite &#039;Go&#039;? ",
+        "question": "On a standard Monopoly board, which square is diagonally opposite Go? ",
         "correct_answer": "Free Parking",
         "incorrect_answers": [
             "Go to Jail",
@@ -28,7 +28,7 @@ const data = [
         "category": "Science: Gadgets",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "The term &quot;battery&quot; to describe an electrical storage device was coined by?",
+        "question": "The term battery to describe an electrical storage device was coined by?",
         "correct_answer": "Benjamin Franklin",
         "incorrect_answers": [
             "Nikola Tesla",
@@ -52,7 +52,7 @@ const data = [
         "category": "Mythology",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "Which Greek &amp; Roman god was known as the god of music, truth and prophecy, healing, the sun and light, plague, poetry, and more?",
+        "question": "Which Greek and Roman god was known as the god of music, truth and prophecy, healing, the sun and light, plague, poetry, and more?",
         "correct_answer": "Apollo",
         "incorrect_answers": [
             "Aphrodite",
@@ -121,9 +121,27 @@ const data = [
         ]
     }
 ]
+var questions = [];
+for(var i = 0; i<10; i++) {
+    questions.push({
+        id: i,
+        questionText: data[i].question,
+        answered: false,
+        options: [
+            {optionText: data[i].correct_answer, isCorrect: true},
+            {optionText: data[i].incorrect_answers[0], isCorrect: false},
+            {optionText: data[i].incorrect_answers[1], isCorrect: false},
+            {optionText: data[i].incorrect_answers[2], isCorrect: false}
+        ]
+    })
+    for (let j = 3; j > 0; j--) {
+        const k = Math.floor(Math.random() * (j + 1));
+        [questions[i].options[j], questions[i].options[k]] = [questions[i].options[k], questions[i].options[j]];
+    }
+}
 
 
-export default data;
+export default questions;
 
 
 
@@ -131,11 +149,14 @@ export default data;
 
 
 
-
-
-
-
-
+// async function getQuestions() {
+//   try {
+//     const response = await axios.get('https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple');
+//     console.log(response.data);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
 
 
@@ -154,13 +175,54 @@ export default data;
 
 
 // async function fetchQuestionsJSON() {
+//     try {
 //     const response = await fetch("https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple");
-//     const questionObject = await response.json();
-//     return questionObject.results;
+//      const questionObject = await response.json();
+//      return questionObject.results;
+//     } catch (err){
+//         console.log(err);
+//     }
+    
 // }
-// let fetchedQuestions = await fetchQuestionsJSON();
+// let fetchedQuestions = fetchQuestionsJSON();
 
 // console.log(fetchedQuestions);
 
-// export default fetchedQuestions;
+
+
+// function Example() {
+//   const [data, dataSet] = useState<any>(null)
+
+//   useEffect(() => {
+//     async function fetchMyAPI() {
+//       let response = await fetch('api/data')
+//       response = await response.json()
+//       dataSet(response)
+//     }
+
+//     fetchMyAPI()
+//   }, [])
+
+//   return <div>{JSON.stringify(data)}</div>
+// }
+
+
+// async function fetchQuestionsJSON() {
+//     try {
+//     let response = await fetch("https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple");
+//     response = await response.json();
+//     return response;
+//     } catch (err){
+//         console.log(err);
+//     }
+    
+// }
+// try{
+// let receiveData = fetchQuestionsJSON();
+// console.log(receiveData);
+// }
+// catch(err) {
+//     console.log(err);
+// }
+
 
