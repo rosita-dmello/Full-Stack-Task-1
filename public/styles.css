@@ -5,21 +5,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 * {
-  color: #011C27;
-  font-family:'Montserrat','Roboto', sans-serif;
+  color: #151515;
+  font-family:'Lato','Montserrat','Roboto', sans-serif;
 }
 
 body {
-  background-color: #6B2737;
+  background-color: #FABC2A;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
 
+.results {
+   background-color: #F5F5F5;
+   max-width: 800px;
+   padding: 25px 50px;
+   font-size: 18px;
+   box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
+   display: flex;
+   border-radius: 5px;
+   margin: 20px 0;
+}
 .app {
-  background-color: #F3EFF5;
-  width: 450px;
+  background-color: #F5F5F5;
+  max-width: 450px;
   min-height: 200px;
   height: min-content;
   border-radius: 15px;
@@ -27,6 +37,17 @@ body {
   box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: space-evenly;
+}
+@media screen and (max-width: 560px) {
+
+  .app {
+    width: 300px;
+  }
+  .results {
+    padding: 20px;
+    max-width: 400px;
+    
+  }
 }
 
 .score-section {
@@ -70,18 +91,18 @@ button {
   width: 100%;
   font-size: 16px;
   color: #ffffff;
-  background-color: #011C27;
+  background-color: #151515;
   border-radius: 4px;
   display: flex;
   padding: 15px;
   align-items: center;
-  border: 1px solid #fcd0dd;
+  border: 1px solid #fdfdfd;
   cursor: pointer;
   margin-bottom: 10px;
   
 }
 button:hover {
-  background-color: #0f3a4b;
+  background-color: #982649;
   transition-delay: 0.09s;
 }
 .prev {

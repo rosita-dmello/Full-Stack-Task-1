@@ -3,12 +3,60 @@ import Question from "./Question";
 import Answer from "./Answer";
 import Toggle from "./Toggle";
 import Score from "./Score";
-import data from "./questions";
+import axios from "axios";
+import Box from '@material-ui/core/Box';
 
 
 function Card() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
+	const [questionArray, setQuestionArray] = useState([]);
+	const [data, setData] = useState([]);
+	const [yourAnswer,setYourAnswer] = useState([]);
+	useEffect(() => {
+	(async () => {
+	try {
+    const response = await axios.get("https://opentdb.com/api.php?amount=10&category=12&difficulty=medium&type=multiple");
+    setQuestionArray(response.data.results);
+	
+	} catch(err) {
+	console.log(err);
+   }
+})();
+}, []);
+
+useEffect(()=> {
+	createData();
+}, [questionArray])
+
+
+function createData(){ //function to push data into the new array
+
+const questions = []; //creating a new array to store objects
+
+for(var i = 0; i< questionArray.length; i++) {
+	if(questionArray.length === 0) break;
+
+    questions.push({
+        key: i,
+        questionText: questionArray[i].question,
+		answered: false,
+        options: [
+            {optionText: questionArray[i].correct_answer, isCorrect: true},
+            {optionText: questionArray[i].incorrect_answers[0], isCorrect: false},
+            {optionText: questionArray[i].incorrect_answers[1], isCorrect: false},
+            {optionText: questionArray[i].incorrect_answers[2], isCorrect: false}
+        ]
+    });
+    for (let j = 3; j > 0; j--) { //shuffling options
+        const k = Math.floor(Math.random() * (j + 1));
+        [questions[i].options[j], questions[i].options[k]] = [questions[i].options[k], questions[i].options[j]];
+    }
+
+}
+setData(questions);
+}
+
 
 
 	function prevQuestion() {
@@ -17,31 +65,53 @@ function Card() {
 		}
 	}
 	function nextQuestion() {
-		if (currentQuestion !== 9){
+		if (currentQuestion !== (data.length-1)){
 			setCurrentQuestion(prevValue => prevValue+1)
 		} else {
-			setShowScore(true);
+			for(var i=0; i<data.length; i++) {
+				if (data[i].answered === false) {
+					alert("Please answer question " + (i+1));
+					setShowScore(false);
+					break;
+				}
+				else {
+				setShowScore(true);
+			   }
+			}
+			
+		} 
+		
 
 		}
+	function clickedAnswer(currentQuestion) {
+		data[currentQuestion].answered = true;
 	}
+
 	const [currentScore, setCurrentScore] = useState(0);
+
 	function receiveScore(score) {
 		 setCurrentScore(score);
 	}
+	function yourAnswers([qNo, optNo]) {
+		setYourAnswer(prevValue => [[qNo, optNo], ...prevValue]);
+	}
 	
-    return <div class="app">
+
+
+	
+    return <Box className={showScore ? "results" : "app" }>
         {showScore
-            ? <Score score={currentScore} /> : ( <div> 
+            ? <Box> <Score score={currentScore} yourAnswers={yourAnswer} data={data}/> </Box>: ( <Box>
 
 			<Question data={data} currentQuestion={currentQuestion} />
-
-			 <Answer data={data} nextQuestion={nextQuestion} currentQuestion={currentQuestion} sendScore={receiveScore} /> 
-
-			 <Toggle prevQuestion={prevQuestion} nextQuestion={nextQuestion} /> 
-
-			 </div> )}
-    </div>
-
+			
+			<Answer data={data} nextQuestion={nextQuestion} currentQuestion={currentQuestion} sendScore={receiveScore} clicked={clickedAnswer} yourAnswers={yourAnswers} /> 
+			
+			<Toggle prevQuestion={prevQuestion} nextQuestion={nextQuestion} currentQuestion={currentQuestion} /> 
+			</Box>
+			  )}
+   
+			</Box>
 }
 
 export default Card;

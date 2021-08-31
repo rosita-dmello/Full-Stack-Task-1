@@ -1,125 +1,125 @@
 
 const data = [
-    {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "According to the International System of Units, how many bytes are in a kilobyte of RAM?",
-        "correct_answer": "1000",
-        "incorrect_answers": [
-            "512",
-            "1024",
-            "500"
-        ]
-    },
-    {
-        "category": "Entertainment: Board Games",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "On a standard Monopoly board, which square is diagonally opposite Go? ",
-        "correct_answer": "Free Parking",
-        "incorrect_answers": [
-            "Go to Jail",
-            "Jail",
-            "The Electric Company"
-        ]
-    },
-    {
-        "category": "Science: Gadgets",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "The term battery to describe an electrical storage device was coined by?",
-        "correct_answer": "Benjamin Franklin",
-        "incorrect_answers": [
-            "Nikola Tesla",
-            "Luigi Galvani",
-            " Alessandro Volta"
-        ]
-    },
-    {
-        "category": "Entertainment: Music",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "Which of these is NOT the name of an album released by English singer-songwriter Adele?",
-        "correct_answer": "12",
-        "incorrect_answers": [
-            "19",
-            "21",
-            "25"
-        ]
-    },
-    {
-        "category": "Mythology",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "Which Greek and Roman god was known as the god of music, truth and prophecy, healing, the sun and light, plague, poetry, and more?",
-        "correct_answer": "Apollo",
-        "incorrect_answers": [
-            "Aphrodite",
-            "Artemis",
-            "Athena"
-        ]
-    },
-    {
-        "category": "Entertainment: Video Games",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "In the game Battleblock Theater, what was the name of the voice actor who voiced the narrator?",
-        "correct_answer": "Will Stamper",
-        "incorrect_answers": [
-            "Steve Blum",
-            "Richard Epcar",
-            "Yuri Lowenthal"
-        ]
-    },
-    {
-        "category": "Entertainment: Video Games",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "In Rust, how many Timed Explosive Charges does it take to destroy a Ladder Hatch?",
-        "correct_answer": "1",
-        "incorrect_answers": [
-            "3",
-            "2",
-            "5"
-        ]
-    },
-    {
-        "category": "Entertainment: Television",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "Who won Big Brother 2014 UK?",
-        "correct_answer": "Helen Wood",
-        "incorrect_answers": [
-            "Christopher Hall",
-            "Pauline Bennett",
-            "Pavandeep &quot;Pav&quot; Paul"
-        ]
-    },
-    {
-        "category": "Geography",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "Which of the following countries has a flag featuring a yellow lion wielding a sword on a dark red background?",
-        "correct_answer": "Sri Lanka",
-        "incorrect_answers": [
-            "Kiribati",
-            "Scotland",
-            "Bhutan"
-        ]
-    },
-    {
-        "category": "Entertainment: Television",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "In the TV show &quot;Mad Men&quot;, what was Donald Draper&#039;s birthname?",
-        "correct_answer": "Richard &quot;Dick&quot; Whitman",
-        "incorrect_answers": [
-            "Donald Draper",
-            "John Ashbury",
-            "Michael &quot;Mikey&quot; Wilhelm"
-        ]
-    }
+{
+"category": "Entertainment: Music",
+"type": "multiple",
+"difficulty": "easy",
+"question": "Who is the frontman of the band 30 Seconds to Mars?",
+"correct_answer": "Jared Leto",
+"incorrect_answers": [
+"Gerard Way",
+"Matthew Bellamy",
+"Mike Shinoda"
+]
+},
+{
+"category": "Entertainment: Video Games",
+"type": "multiple",
+"difficulty": "easy",
+"question": "Who was the voice actor for Snake in Metal Gear Solid V: The Phantom Pain?",
+"correct_answer": "Kiefer Sutherland",
+"incorrect_answers": [
+"David Hayter",
+"Norman Reedus",
+"Hideo Kojima"
+]
+},
+{
+"category": "Science & Nature",
+"type": "multiple",
+"difficulty": "easy",
+"question": "What is the primary addictive substance found in tobacco?",
+"correct_answer": "Nicotine",
+"incorrect_answers": [
+"Cathinone",
+"Ephedrine",
+"Glaucine"
+]
+},
+{
+"category": "Entertainment: Board Games",
+"type": "multiple",
+"difficulty": "easy",
+"question": "Which one of these is not a real game in the Dungeons & Dragons series?",
+"correct_answer": "Extreme Dungeons & Dragons",
+"incorrect_answers": [
+"Advanced Dungeons & Dragons",
+"Dungeons & Dragons 3.5th edition",
+"Advanced Dungeons & Dragons 2nd edition"
+]
+},
+{
+"category": "Entertainment: Film",
+"type": "multiple",
+"difficulty": "easy",
+"question": "In the movie Gremlins, after what time of day should you not feed Mogwai?",
+"correct_answer": "Midnight",
+"incorrect_answers": [
+"Evening",
+"Morning",
+"Afternoon"
+]
+},
+{
+"category": "Vehicles",
+"type": "multiple",
+"difficulty": "easy",
+"question": "Which car tire manufacturer is famous for its &quot;P Zero&quot; line?",
+"correct_answer": "Pirelli",
+"incorrect_answers": [
+"Goodyear",
+"Bridgestone",
+"Michelin"
+]
+},
+{
+"category": "Vehicles",
+"type": "multiple",
+"difficulty": "easy",
+"question": "The LS2 engine is how many cubic inches?",
+"correct_answer": "364",
+"incorrect_answers": [
+"346",
+"376",
+"402"
+]
+},
+{
+"category": "Mythology",
+"type": "multiple",
+"difficulty": "easy",
+"question": "What mythology did the god &quot;Apollo&quot; come from?",
+"correct_answer": "Greek and Roman",
+"incorrect_answers": [
+"Roman and Spanish",
+"Greek and Chinese",
+"Greek, Roman and Norse"
+]
+},
+{
+"category": "General Knowledge",
+"type": "multiple",
+"difficulty": "easy",
+"question": "According to the nursery rhyme, what fruit did Little Jack Horner pull out of his Christmas pie?",
+"correct_answer": "Plum",
+"incorrect_answers": [
+"Apple",
+"Peach",
+"Pear"
+]
+},
+{
+"category": "General Knowledge",
+"type": "multiple",
+"difficulty": "easy",
+"question": "What is the closest planet to our solar system&#039;s sun?",
+"correct_answer": "Mercury",
+"incorrect_answers": [
+"Mars",
+"Jupiter",
+"Earth"
+]
+}
 ]
 var questions = [];
 for(var i = 0; i<10; i++) {

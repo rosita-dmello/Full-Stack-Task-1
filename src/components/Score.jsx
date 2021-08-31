@@ -1,10 +1,46 @@
 import React from "react";
-import questions from "./questions";
+
 
 function Score(props){
-    
-	return <div className='score-section'>You scored {props.score} out of {questions.length}</div>
-			
+    const allAnswers = props.yourAnswers;
+    console.log(allAnswers);
+    const filteredArray = [];
+    const displayArray = [];
+    for (var i=0; i<props.data.length;i++){
+       filteredArray.push(allAnswers.find(answerArray => {
+            return answerArray[0] == i;
+        }))
+    }
+    var qNo = 0;
+    var optionNo = 0;
+    for (var j=0; j<filteredArray.length; j++) {
+        qNo = filteredArray[j][0];
+        optionNo = filteredArray[j][1];
+        var correctAnswer = props.data[j].options.find(option => {return option.isCorrect === true});
+        displayArray.push(
+            {
+                question: props.data[qNo].questionText,
+                correctAnswer: correctAnswer.optionText,
+                yourAnswer: props.data[qNo].options[optionNo].optionText
+            }
+        );
+    }
+
+    console.log(displayArray);
+
+	return <>
+    <div className='score-section'>You scored {props.score} out of {props.data.length}</div>
+    {displayArray.map((item,index) => {
+        return <div className=".app">
+        <hr/>
+        <p> Question No: {index+1} </p>
+        <p> Question : {item.question} </p>
+        <p> Correct Answer: {item.correctAnswer} </p>
+        <p> Your Answer: {item.yourAnswer} </p>
+        
+        </div>
+    })}
+	</>
 }
 
 export default Score;
