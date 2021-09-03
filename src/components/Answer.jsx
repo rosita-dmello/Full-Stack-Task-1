@@ -1,35 +1,34 @@
-import React, {useState} from "react";
-import Container from '@material-ui/core/Container';
+import React, {useEffect, useState} from "react";
+import {FormControlLabel, FormControl, Radio, RadioGroup} from '@material-ui/core';
 
 
 function Answer(props){
-    const [score, setScore] = useState(0);
     const index = props.currentQuestion;
+	const [defaultVal, setDefaultVal] = useState("");
 
-    function handleAnswerClick(isCorrect) {
-
-		if (isCorrect){
-			setScore(prevValue => prevValue+1)
-		}
-        props.sendScore(score);
-	}
-	
+	useEffect(() => {
+		let value = (props.yourAnswer).map(set => {
+		if (set[0] === props.currentQuestion) {
+			return props.data[props.currentQuestion].options[set[1]].optionText;
+		} 
+	});
+	setDefaultVal(value);
+	}, [props.currentQuestion]);
 
     return <>
-	<Container className='answer-section'>
+	 <FormControl className="answer-section">
+		<RadioGroup defaultValue={defaultVal} className="radio" >
 		{(props.data[index] ? props.data[index].options : []).map((answerOption,optNo) => {
-			return <button onClick={(event) => {
+			return <FormControlLabel className="button" onChange={(event) => {
 			props.yourAnswers([index, optNo]);
-			handleAnswerClick(answerOption.isCorrect);
-			props.clicked(props.currentQuestion);
-			props.nextQuestion();
-			// props.changeColour();
-			}}>{answerOption.optionText}</button>
+			props.clicked(index);
+			}} control={<Radio/>} value={answerOption.optionText} label={answerOption.optionText}></FormControlLabel>
+			
 		}
 		)}
-	</Container>
+		</RadioGroup>
+	</FormControl>
 	</>
-  
 }
 
 export default Answer;

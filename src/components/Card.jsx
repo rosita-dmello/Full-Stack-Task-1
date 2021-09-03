@@ -87,11 +87,6 @@ setData(questions);
 		data[currentQuestion].answered = true;
 	}
 
-	const [currentScore, setCurrentScore] = useState(0);
-
-	function receiveScore(score) {
-		 setCurrentScore(score);
-	}
 	function yourAnswers([qNo, optNo]) {
 		setYourAnswer(prevValue => [[qNo, optNo], ...prevValue]);
 	}
@@ -101,11 +96,11 @@ setData(questions);
 	
     return <Box className={showScore ? "results" : "app" }>
         {showScore
-            ? <Box> <Score score={currentScore} yourAnswers={yourAnswer} data={data}/> </Box>: ( <Box>
+            ? <Box> <Score yourAnswers={yourAnswer} data={data}/> </Box>: ( <Box>
 
 			<Question data={data} currentQuestion={currentQuestion} />
 			
-			<Answer data={data} nextQuestion={nextQuestion} currentQuestion={currentQuestion} sendScore={receiveScore} clicked={clickedAnswer} yourAnswers={yourAnswers} /> 
+			<Answer data={data} nextQuestion={nextQuestion} currentQuestion={currentQuestion} clicked={clickedAnswer} yourAnswers={yourAnswers} yourAnswer={yourAnswer} /> 
 			
 			<Toggle prevQuestion={prevQuestion} nextQuestion={nextQuestion} currentQuestion={currentQuestion} /> 
 			</Box>

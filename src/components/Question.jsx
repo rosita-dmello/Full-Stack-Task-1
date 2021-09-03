@@ -7,7 +7,7 @@ function Question(props){
     const index = props.currentQuestion;
     return <Grid container className="question-section">
         <Container className='question-count' >
-        <span className="question-span"> Question {props.currentQuestion + 1} </span>/ {props.data.length}
+        <span className="question-span"> {props.currentQuestion + 1} </span>/ {props.data.length}
         </Container>
 		<Container className='question-text'>{props.data[index] ? (props.data[index]).questionText: ""}</Container>
 	</Grid>

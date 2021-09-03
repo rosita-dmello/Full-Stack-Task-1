@@ -11,7 +11,6 @@ function Toggle(props){
     </Box>
     <Box className="next">
 	<Button onClick={() => {
-    // props.changeColour();
     props.nextQuestion();
     }}> {props.currentQuestion === 9 ? "Submit" : "Next"} </Button>
     </Box>
