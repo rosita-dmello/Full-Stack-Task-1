@@ -9,7 +9,7 @@ function Score(props){
     const displayArray = [];
     for (var i=0; i<props.data.length;i++){
        filteredArray.push(allAnswers.find(answerArray => {
-            return answerArray[0] == i;
+            return answerArray[0] === i;
         }));
     }
      console.log(filteredArray);

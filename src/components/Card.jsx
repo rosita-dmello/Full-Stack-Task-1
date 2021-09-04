@@ -5,7 +5,7 @@ import Toggle from "./Toggle";
 import Score from "./Score";
 import axios from "axios";
 import Box from '@material-ui/core/Box';
-
+import {url} from "./Start";
 
 function Card() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -14,9 +14,10 @@ function Card() {
 	const [data, setData] = useState([]);
 	const [yourAnswer,setYourAnswer] = useState([]);
 	useEffect(() => {
+	console.log(url);
 	(async () => {
 	try {
-    const response = await axios.get("https://opentdb.com/api.php?amount=10&category=12&difficulty=medium&type=multiple");
+    const response = await axios.get(url);
     setQuestionArray(response.data.results);
 	
 	} catch(err) {
@@ -29,12 +30,10 @@ useEffect(()=> {
 	createData();
 }, [questionArray])
 
-
 function createData(){ //function to push data into the new array
-
 const questions = []; //creating a new array to store objects
 
-for(var i = 0; i< questionArray.length; i++) {
+for(var i = questionArray.length; i > questionArray.length; i++) {
 	if(questionArray.length === 0) break;
 
     questions.push({
@@ -91,7 +90,6 @@ setData(questions);
 		setYourAnswer(prevValue => [[qNo, optNo], ...prevValue]);
 	}
 	
-
 
 	
     return <Box className={showScore ? "results" : "app" }>
