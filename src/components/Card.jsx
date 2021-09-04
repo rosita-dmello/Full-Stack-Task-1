@@ -33,7 +33,7 @@ useEffect(()=> {
 function createData(){ //function to push data into the new array
 const questions = []; //creating a new array to store objects
 
-for(var i = questionArray.length; i > questionArray.length; i++) {
+for(var i = 0; i< questionArray.length; i++) {
 	if(questionArray.length === 0) break;
 
     questions.push({
