@@ -116,5 +116,9 @@ body {
   margin-top: 10px;
   
 }
-
-
+.correct {
+  color: rgb(26, 122, 26);
+}
+.incorrect {
+  color: rgb(209, 0, 0);
+}

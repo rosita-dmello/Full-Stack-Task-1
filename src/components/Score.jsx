@@ -43,7 +43,7 @@ function Score(props){
         <p> Question No: {index+1} </p>
         <p> Question : {item.question} </p>
         <p> Correct Answer: {item.correctAnswer} </p>
-        <p> Your Answer: {item.yourAnswer} </p>
+        <p className = {item.correctAnswer === item.yourAnswer ? "correct" : "incorrect"}> Your Answer: {item.yourAnswer} </p>
         
         </div>
     })}
